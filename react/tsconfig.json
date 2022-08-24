@@ -1,0 +1,11 @@
+{
+  "extends": "@vtex/tsconfig",
+  "compilerOptions": {
+    "noEmitOnError": false,
+    "lib": ["dom"],
+    "module": "esnext",
+    "moduleResolution": "node",
+    "target": "es2017"
+  },
+  "include": ["./typings/*.d.ts", "./**/*.tsx", "./**/*.ts", "comments/Comments.tsx", "ratting-form/RattingReview.jsx", "RattingReview.tsx", "CommentsProvider.jsx", "contexts/CommentsProvider.jsx"]
+}
