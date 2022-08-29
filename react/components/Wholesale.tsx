@@ -1,16 +1,12 @@
 import React, { useState } from 'react'
 import {useProduct} from 'vtex.product-context'
-import {Button} from 'vtex.styleguide';
 import './App.css'
-type Props ={
-  discount:number
-  totalDiscount:number
-}
 
 function Wholesale({discount,totalDiscount}: Props) {
-  const {selectedItem} = useProduct()
-  const qntdMax = selectedItem.sellers[0].commertialOffer.AvailableQuantity
-  const price = selectedItem.sellers[0].commertialOffer.Price
+  const product = useProduct()
+  const qntdMax = product.selectedItem.sellers[0].commertialOffer.AvailableQuantity
+  const price = product.selectedItem.sellers[0].commertialOffer.Price
+
 
   const [quantity, setQuantity] = useState<number>(0);
   const [totalPrice,setTotal] = useState<number>(0)
@@ -32,7 +28,9 @@ function Wholesale({discount,totalDiscount}: Props) {
     }    
   }
   const decrease = () => {
-    if(quantity <= 49){
+    if(quantity>=qntdMax){
+      setQuantity(qntdMax)
+    } else if(quantity <= 49){
       setQuantity(0)
     }else{
       setQuantity(quantity - 50)
@@ -41,11 +39,17 @@ function Wholesale({discount,totalDiscount}: Props) {
   const calcDiscount = () =>{
     let actualDiscount = 0;
     let contador = 100;
+    if(discount==null){
+      discount = 0
+    }
+    if(totalDiscount ==null){
+      totalDiscount=0
+    }
     if(quantity>qntdMax){
       return
     }
     while(contador<=quantity && actualDiscount<=totalDiscount){
-      actualDiscount +=discount;
+      actualDiscount += discount;
       contador+=100
     }
     setTotal((price - (price*(actualDiscount/100)))*quantity)
@@ -62,7 +66,7 @@ function Wholesale({discount,totalDiscount}: Props) {
 
       <p className='black'>Quantidade em estoque: {qntdMax}</p>
 
-      <div className='pa5'>
+      <div className='pa3'>
         <input className='w-20 pa3 tr mr3 h2 di bg-light-gray br3' type="number" name="quantity" id="quantity" onChange={altQuantity} value={quantity || ''} /> 
         <div className='h2 ba di ph2 bg-light-blue br3 pv2 mv2 pointer' onClick={decrease}>
           <img className='mw1' src="https://cdn-icons-png.flaticon.com/512/43/43731.png" alt="Menor que" />
@@ -72,7 +76,7 @@ function Wholesale({discount,totalDiscount}: Props) {
         </div>
       </div>
 
-      <Button className="red" size="small" onClick={calcDiscount} type='button'>Verificar desconto</Button> 
+      <button className="red" onClick={calcDiscount} type='button'>Verificar desconto</button> 
 
         {message && 
           <div id='message'>

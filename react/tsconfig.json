@@ -7,5 +7,18 @@
     "moduleResolution": "node",
     "target": "es2017"
   },
-  "include": ["./typings/*.d.ts", "./**/*.tsx", "./**/*.ts", "comments/Comments.tsx", "ratting-form/RattingReview.jsx", "RattingReview.tsx", "CommentsProvider.jsx", "contexts/CommentsProvider.jsx"]
+  "include": [
+    "./typings/*.d.ts",
+    "./**/*.tsx",
+    "./**/*.ts",
+    "comments/Comments.tsx",
+    "ratting-form/RattingReview.jsx",
+    "RattingReview.tsx",
+    "CommentsProvider.jsx",
+    "contexts/CommentsProvider.jsx",
+    "__mocks__/vtex.product-context/useProduct.ts",
+    "__mocks__/vtex.product-context/useProduct.ts",
+    "components/Wholesale.js",
+    "__tests__/Wholesale.test.jsx"
+  ]
 }

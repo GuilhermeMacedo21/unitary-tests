@@ -1,1 +1,3 @@
-export const useProduct = jest.fn(() => {})
+export const useProduct = jest.fn(()=> {
+
+})

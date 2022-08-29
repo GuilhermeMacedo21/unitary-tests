@@ -1,23 +1,16 @@
 declare module 'vtex.styleguide';
 declare module 'vtex.product-context';
 
-interface ContextType {
-    comments: Comment[]
+type Props ={
+    discount?:number
+    totalDiscount?:number
 }
-interface Data {
-    documents: Document[]
+interface SelectedItem {
+    sellers: Array<{
+        commertialOffer:{
+            AvailableQuantity:number
+            Price: number
+        }
+    }>
 }
-interface Document {
-    fields: Field[]
-}
-interface Field {
-    key:string,
-    value:string
-}
-interface Comment {
-    userResponsible: string,
-    dateComment:string,
-    grade:string,
-    userComment:string
-    productEvaluated?:number
-}
+  
