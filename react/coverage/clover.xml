@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1661881776785" clover="3.2.0">
-  <project timestamp="1661881776785" name="All files">
+<coverage generated="1661882102263" clover="3.2.0">
+  <project timestamp="1661882102263" name="All files">
     <metrics statements="28" coveredstatements="28" conditionals="14" coveredconditionals="12" methods="5" coveredmethods="5" elements="47" coveredelements="45" complexity="0" loc="28" ncloc="28" packages="1" files="1" classes="1"/>
     <file name="Wholesale.tsx" path="C:\Users\guigu\Downloads\ACCT\Testes unitários\tests-app\react\components\Wholesale.tsx">
       <metrics statements="28" coveredstatements="28" conditionals="14" coveredconditionals="12" methods="5" coveredmethods="5"/>
