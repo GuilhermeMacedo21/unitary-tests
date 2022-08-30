@@ -2,7 +2,7 @@
   "name": "guilherme-tests",
   "version": "0.1.0",
   "scripts": {
-    "test": "vtex-test-tools test"
+    "test": "vtex-test-tools test --coverage"
   },
   "dependencies": {
     "apollo-client": "^2.6.8",
