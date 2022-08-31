@@ -17,25 +17,18 @@ function Wholesale({discount = 0,totalDiscount = 0}: Props) {
   }
 
   const increase = () => {
-    if(quantity>=qntdMax){
-      setQuantity(qntdMax)
-    }else{
-      setQuantity(quantity + 50);
-    }    
+    quantity>=qntdMax|| quantity+50>qntdMax ? 
+    setQuantity(qntdMax) : 
+    setQuantity(quantity + 50);
   }
   const decrease = () => {
-    if(quantity <= 49){
-      setQuantity(0)
-    }else{
-      setQuantity(quantity - 50)
-    }    
+    quantity <=49 ? 
+    setQuantity(0) : 
+    setQuantity(quantity-50)
   }
   const calcDiscount = () =>{
     let actualDiscount = 0
     let contador = 100
-    if(quantity>qntdMax){
-      return
-    }
     while(contador<=quantity && actualDiscount<=totalDiscount){
       actualDiscount += discount;
       contador+=100
@@ -52,7 +45,7 @@ function Wholesale({discount = 0,totalDiscount = 0}: Props) {
       <h4 className='fw4'>Insira a quantidade que deseja, assim será possível calcular o desconto a ser aplicado</h4>      
       <p><span className='red di b'>OBS:</span>A cada 100 unidades terá {discount}% de desconto, até {totalDiscount}% de desconto.</p>
 
-      <p className='black-90'>Quantidade em estoque: {qntdMax}</p>
+      <p>Quantidade em estoque: {qntdMax}</p>
 
       <div className='pa3'>
         <input className='w-20 pa3 tr mr3 h2 di bg-light-gray br3' type="number" name="quantity" id="quantity" onChange={altQuantity} maxLength={qntdMax.toString().length} value={quantity || ''} data-testid="inputNumber"/> 
