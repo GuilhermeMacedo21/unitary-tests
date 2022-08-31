@@ -51,20 +51,6 @@ describe('Button component tests', () => {
 
     expect(getByText('Preço total com desconto: R$ 9.500,00')).toBeInTheDocument()
   })
-
-  it('Not show the message because the input have a quantity more than the stock', () => {
-    const { queryByText } = render(<Wholesale discount={5} totalDiscount={50} />)
-
-    const increase = screen.getByTestId('increase')
-    const num = screen.getByTestId('inputNumber')
-    const button = screen.getByText('Verificar desconto')
-
-    fireEvent.change(num, { target: { value: 130 } });
-    fireEvent.click(increase)
-    fireEvent.click(button)
-
-    expect(queryByText('Preço total com desconto: R$ 0,00')).not.toBeInTheDocument()
-  })
 });
 
 describe('Increase and decrease button tests', () => {
